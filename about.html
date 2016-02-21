@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<!--image dimensions for card: 200px X 150px-->
+<!--begin of head-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="author" content="Varun Bawa & Rananjay Chauhan">
+    <link href="css/materialize.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <link id="page_favicon" href="favicon.ico" rel="icon" type="image/x-icon">
+    <title>Hackathon Health Manager</title>
+    <style>
+        .quiz_margin{
+            margin: 35px 41px 7px 0px;
+        }
+        .content_margin{
+            margin: 0px 0px 0px 11px;
+        }
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+    </style>
+</head>
+<!--end of Head-->
+
+<!--begin of Body-->
+
+<body>
+
+    <!--Begin header-->
+    <nav>
+	<div class="nav-wrapper blue-grey darken-4">
+            <img class="left" style="padding-left: 10px;" height="60" width="100" src="images/mii.png">
+			<a href="#!" class="brand-logo">Health Manager</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li class="active"><a href="index.php">Home</a></li>
+			<!--If User is Logged in Display Logout Option Else Login Option-->
+		    	<li><a href="#login" class="modal-trigger">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li class="active"><a href="index.php">Home</a></li>
+                <li><a href="#login">Login</a></li>
+                <li><a href="register.html">Register</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--end Header-->
+
+    <!--Begin Content-->
+    <main>
+        <div class="row register_form">
+            <div class="col m4 s2 card-panel"></div>
+			<iframe src="hackathon.pptx"></iframe>
+            <div class="col m4 s2 card-panel"></div>
+        </div>
+	</main>
+    <!--end Content-->
+
+    <!--Begin Footer-->
+<!--Php Code below sets the theme color for footer according to time of day-->
+	<footer class="page-footer blue-grey darken-4 darken-2">
+	    <div class="footer-copyright">
+            <div class="container">
+                Developed and Maintained by Team C.L.
+                <a class="grey-text text-lighten-4 right" href="http://materializecss.com/" target="_blank">Developed using materializecss</a>
+            </div>
+        </div>
+    </footer>
+    <!--end Footer-->
+</body>
+<!--end of Body-->
+
+<!--Begin of Script Section-->
+    <script>
+
+        //responsive initialization
+        $(".button-collapse").sideNav();
+
+        //Tooltip initialization
+        $(document).ready(function(){
+            $('.tooltipped').tooltip({delay: 50});
+        });
+
+        //Modal Initialization
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
+        });
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!--End of Script Section-->
+</html>

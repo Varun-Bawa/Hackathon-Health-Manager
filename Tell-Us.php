@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<!--image dimensions for card: 200px X 150px-->
+<!--begin of head-->
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="author" content="Varun Bawa & Rananjay Chauhan">
+    <link href="css/materialize.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <link id="page_favicon" href="favicon.ico" rel="icon" type="image/x-icon">
+    <title>Hackathon Health Manager</title>
+    <style>
+        .quiz_margin{
+            margin: 35px 41px 7px 0px;
+        }
+        .content_margin{
+            margin: 0px 0px 0px 11px;
+        }
+        body {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1 0 auto;
+        }
+    </style>
+</head>
+<!--end of Head-->
+
+<!--begin of Body-->
+
+<body>
+
+    <!--Begin header-->
+    <nav>
+	<div class="nav-wrapper blue-grey darken-4">
+            <img class="left" style="padding-left: 10px;" height="60" width="100" src="images/mii.png">
+			<a href="#!" class="brand-logo">Health Manager</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+            <ul class="right hide-on-med-and-down">
+                <li class="active"><a href="index.php">Home</a></li>
+			<!--If User is Logged in Display Logout Option Else Login Option-->
+		    	<li><a href="about.html">About</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li class="active"><a href="index.php">Home</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--end Header-->
+
+    <!--Begin Content-->
+    <main>
+        <div class="row register_form">
+            <div class="col m4 s2 card-panel"></div>
+            <form class="col m4 s8 card-panel blue-grey darken-4" action="tell-check.php" method="POST">
+                <div class="row">
+                    <div class="col m10 s10 white-text"><h4>What are You Facing</h4></div>
+                    <div class="col m1 s1"></div>
+                    <div class="col m1 s1"></div>
+                </div>
+                <div class="row white-text">
+                    <div class="input-field col m1 s1"></div>
+                    <div class="input-field col m10 s10 white-text">
+                        <i class="mdi-action-account-circle prefix white-text"></i>
+                        <input id="diseases" type="text" class="validate" name="diseases" required>
+                        <label for="diseases" class="white-text">Diseases(seperated by ',')</label>
+                    </div>
+                    <div class="input-field col m1 s1"></div>
+                </div>
+                <div class="row">
+					<p class="white-text">Date of Report</p>
+                    <div class="input-field col m1 s1"></div>
+                    <div class="input-field col m10 s10 white-text">
+						<i class="small material-icons prefix">today</i>
+                        <input id="date" type="date" class="datepicker" name="date" required validate>
+                    </div>
+                    <div class="input-field col m1 s1"></div>
+                </div>
+                <div class="row">
+                    <div class="col m12 s12" align="center"> <button class="btn waves-effect waves-light pink" type="submit">Advice Me
+                        <i class="mdi-content-send right"></i>
+                    </button>
+                    </div>
+                </div>
+            </form>
+            <div class="col m4 s2 card-panel"></div>
+        </div>
+	</main>
+    <!--end Content-->
+
+    <!--Begin Footer-->
+<!--Php Code below sets the theme color for footer according to time of day-->
+	<footer class="page-footer blue-grey darken-4 darken-2">
+	    <div class="footer-copyright">
+            <div class="container">
+                Developed and Maintained by Team C.L.
+                <a class="grey-text text-lighten-4 right" href="http://materializecss.com/" target="_blank">Developed using materializecss</a>
+            </div>
+        </div>
+    </footer>
+    <!--end Footer-->
+
+    <!-- Login Modal Structure -->
+    <div id="login" class="modal">
+        <div class="modal-content">
+            <h4>Login</h4>
+            <div class="row">
+                <form class="col s12" method="POST" action="logincheck.php">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <i class="mdi-action-account-circle prefix"></i>
+                            <input id="icon_prefix" type="text" class="validate" name="email">
+                            <label for="icon_prefix">Email ID</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <i class="mdi-action-lock prefix"></i>
+                            <input id="icon_telephone" type="password" class="validate" name="password">
+                            <label for="icon_telephone">Password</label>
+                        </div>
+                    </div>
+					<div class="modal-footer">
+						<button class="modal-action modal-close waves-effect waves-green btn-flat" type="submit">Login
+							<i class="mdi-content-send right"></i>
+						</button>
+					</div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--end of modal-->
+</body>
+<!--end of Body-->
+
+<!--Begin of Script Section-->
+	<script>
+	//Script to connect to FB
+		$( document ).ready(function(){
+			$(".button-collapse").sideNav();
+		});
+		!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+		<script>
+	function checkPass()
+	{
+		//Store the password field objects into variables ...
+		var pass1 = document.getElementById('pass1');
+		var pass2 = document.getElementById('pass2');
+		//Store the Confimation Message Object ...
+		var message = document.getElementById('confirmMessage');
+		//Set the colors we will be using ...
+		var goodColor = "#66cc66";
+		var badColor = "#ff6666";
+		//Compare the values in the password field 
+		//and the confirmation field
+		if(pass1.value == pass2.value){
+			//The passwords match. 
+			//Set the color to the good color and inform
+			//the user that they have entered the correct password 
+			pass2.style.backgroundColor = goodColor;
+			message.style.color = goodColor;
+			message.innerHTML = "Passwords Match!"
+		}else{
+			//The passwords do not match.
+			//Set the color to the bad color and
+			//notify the user.
+			pass2.style.backgroundColor = badColor;
+			message.style.color = badColor;
+			message.innerHTML = "Passwords Do Not Match!"
+		}
+	}  
+	</script>
+    <script>
+
+        //responsive initialization
+        $(".button-collapse").sideNav();
+
+        //Tooltip initialization
+        $(document).ready(function(){
+            $('.tooltipped').tooltip({delay: 50});
+        });
+
+        //Modal Initialization
+        $(document).ready(function(){
+            // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+            $('.modal-trigger').leanModal();
+        });
+    </script>
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+<!--End of Script Section-->
+</html>
